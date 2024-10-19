@@ -1,0 +1,269 @@
+@import "../../index.scss";
+
+
+.create {
+    position: absolute;
+    right: 0;
+    top: 550px;
+    width: calc(100% - 360px);
+
+    >div {
+        @include flex($direction:column);
+        gap: 15px;
+
+        >div {
+            @include flex($justify:space-between);
+            margin-block: 1rem;
+
+            &.top {
+                width: 90%;
+                gap: 1.25rem;
+
+                >span {
+                    @include equal(24px);
+                    @include flex;
+
+                    svg {
+                        path {
+                            fill: hwb(215 12% 2%);
+                        }
+                    }
+                }
+
+                h2 {
+                    margin-right: auto;
+                    font-weight: 600;
+                    font-family: $syne;
+                    font-size: 1.5rem;
+                }
+
+                div {
+                    @include flex;
+                    gap: 1.25rem;
+
+                    span {
+                        @include flex;
+
+                        &:first-of-type {
+                            font-family: $syne;
+                            font-weight: 600;
+                            font-size: .9375rem;
+                            text-transform: capitalize;
+                            color: hwb(195 6% 92% / 0.71);
+                        }
+
+                        &:last-of-type {
+                            width: 40px;
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+
+            &.bottom {
+                flex-direction: column;
+                gap: 2.375rem;
+                width: 88%;
+
+                article {
+                    border-radius: 15px;
+                    @include flex($direction:column);
+                    background: rgba(255, 255, 255, 0.9);
+                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+                    width: 100%;
+                    padding: 25px 50px;
+
+                    &:nth-of-type(1) {
+                        gap: 25px;
+
+                        div {
+                            min-width: 100%;
+                            @include flex($justify:flex-start);
+                            gap: 2.5rem;
+
+                            span {
+                                @include equal(55px);
+                                @include flex;
+                                border-radius: 50%;
+                                overflow: hidden;
+                            }
+
+                            h5 {
+                                font-family: $syne;
+                                font-weight: 500;
+                                font-size: 1.375rem;
+                                text-transform: capitalize;
+                            }
+                        }
+
+                        >span {
+                            position: relative;
+                            height: 65px;
+                            @include flex;
+                            width: 100%;
+                            border-radius: 26px;
+                            background-color: hwb(202 73% 24% / 0.2);
+
+                            input {
+                                width: 100%;
+                                border: none;
+                                outline: none;
+                                height: 20px;
+                                padding: 36px 72px 36px 36px;
+                                font-family: $syne;
+                                font-weight: 600;
+                                font-size: 1rem;
+                            }
+
+                            &::after {
+                                content: "edit";
+                                text-transform: capitalize;
+                                position: absolute;
+                                right: 25px;
+                                height: 15px;
+                                width: 50px;
+                                @include flex;
+                                font-weight: 400;
+                                font-family: $axiforma;
+                                font-size: .625rem;
+                                color: hwb(194 32% 6%);
+                            }
+                        }
+                    }
+
+                    &:nth-of-type(2) {
+                        gap: 30px;
+                        align-items: flex-start;
+                        position: relative;
+
+                        h5 {
+                            font-family: $syne;
+                            font-weight: 600;
+                            font-size: 1rem;
+                            text-transform: capitalize;
+                        }
+
+                        div {
+                            @include flex($direction:column);
+                            gap: 20px;
+                            width: 100%;
+
+                            input {
+                                color: hwb(0 16% 84% / 0.75);
+                                font-family: $syne;
+                                height: 16px;
+                                width: 100%;
+                                font-size: .8125rem;
+                                border: none;
+                                outline: none;
+                                font-weight: 600;
+                            }
+                        }
+
+                        &::after {
+                            content: "edit";
+                            text-transform: capitalize;
+                            position: absolute;
+                            right: 45px;
+                            top: 30px;
+                            height: 20px;
+                            width: 40px;
+                            border-radius: 7px;
+                            @include flex;
+                            font-weight: 400;
+                            font-family: $axiforma;
+                            font-size: .625rem;
+                            color: hwb(194 32% 6%);
+                            background-color: hwb(195 73% 24% / 0.19);
+                        }
+                    }
+
+                    &:nth-of-type(3) {
+                        align-items: flex-start;
+                        gap: 26px;
+                        position: relative;
+
+                        h5 {
+                            font-family: $syne;
+                            font-weight: 600;
+                            font-size: 1rem;
+                            text-transform: capitalize;
+                        }
+
+                        input {
+                            color: hwb(0 16% 84% / 0.6);
+                            font-weight: 600;
+                            font-size: 1.125rem;
+                            font-family: $syne;
+                            border: none;
+                            outline: none;
+                            width: 100%;
+                        }
+
+                        &::after {
+                            content: "optional";
+                            text-transform: capitalize;
+                            position: absolute;
+                            right: 45px;
+                            top: 30px;
+                            height: 20px;
+                            width: 55px;
+                            border-radius: 7px;
+                            @include flex;
+                            font-weight: 400;
+                            font-family: $axiforma;
+                            font-size: .625rem;
+                            color: hwb(194 32% 6%);
+                            background-color: hwb(195 73% 24% / 0.19);
+                        }
+                    }
+
+                    &:nth-of-type(4) {
+                        flex-direction: row;
+                        justify-content: space-between;
+                        border-radius: 0;
+                        background: none;
+                        box-shadow: none;
+                        width: 100%;
+                        padding: 0px;
+                        gap: 90px;
+
+                        >div {
+                            border-radius: 15px;
+                            @include flex($direction:column, $align:flex-start);
+                            background: rgba(255, 255, 255, 0.9);
+                            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+                            width: 100%;
+                            padding: 25px 50px;
+                            gap: 22px;
+
+                            h5 {
+                                font-family: $syne;
+                                font-size: 1rem;
+                                font-weight: 600;
+                                text-transform: capitalize;
+                            }
+
+                            div {
+                                @include flex;
+
+                                input {
+                                    color: hwb(0 16% 84% / 0.72);
+                                    font-weight: 600;
+                                    font-size: 1.4375rem;
+                                    font-family: $syne;
+                                    height: 28px;
+                                    width: 50px;
+                                    @include flex;
+                                    border: none;
+                                    outline: none;
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,400 @@
+@import "../../index.scss";
+
+
+.landing {
+    font-family: $syne;
+
+    .navigation {
+        @include flex($justify:space-between);
+        height: 80px;
+        padding-inline: 5%;
+
+        .logo {
+            @include flex;
+            gap: .5rem;
+
+            span {
+                &:last-of-type {
+                    font-weight: 600;
+                    font-size: 1.4375rem;
+                    color: black;
+                }
+            }
+        }
+
+        nav {
+            ul {
+                list-style: none;
+                @include flex;
+                gap: 4rem;
+
+                @include breakpoint-max(1300px) {
+                    gap: 2rem;
+                }
+
+                li {
+                    a {
+                        font-size: 1.125rem;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+
+        .cta {
+            width: 192px;
+            height: 48px;
+
+            button {
+                @include equal(100%);
+                @include flex;
+                border-radius: 2.125rem;
+                border: 1px solid black;
+                outline: none;
+
+                span {
+                    font-family: $syne;
+                    font-size: 18px;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    .header {
+        @include flex;
+        margin-top: 185px;
+        position: relative;
+
+        div {
+            @include flex;
+
+            &.rectangles {
+                position: absolute;
+                height: 635px;
+                width: min(100%, 1488px);
+                z-index: -1;
+                margin-top: 86px;
+                opacity: .25;
+
+                figure {
+                    --border-width: 2px;
+                    --border-radius: 235px;
+
+                    position: inherit;
+                    @include flex;
+                    border-radius: var(--border-radius);
+                    background: linear-gradient(180deg,
+                            hwb(0 0% 100% / 0.15) 0%,
+                            hwb(0 0% 100% / 0) 100%);
+
+                    &::after {
+                        content: "";
+                        @include flex;
+                        position: absolute;
+                        top: var(--border-width);
+                        left: var(--border-width);
+                        background-color: var(--background);
+                        height: calc(100% - calc(var(--border-width)) * 2);
+                        width: calc(100% - calc(var(--border-width)) * 2);
+                        border-radius: calc(var(--border-radius) - var(--border-width));
+                    }
+
+                    &:nth-of-type(1) {
+                        @include equal(inherit);
+                    }
+
+                    &:nth-of-type(2) {
+                        height: 485px;
+                        width: min(90%, 1296px);
+                    }
+
+                    &:nth-of-type(3) {
+                        height: 342px;
+                        width: min(80%, 1044px);
+                    }
+                }
+            }
+
+
+            &.content {
+                flex-direction: column;
+                gap: 5.9375rem;
+                z-index: 5;
+
+                h1 {
+                    font-weight: 700;
+                    font-size: 3.4375rem;
+                    width: 1265px;
+                    text-align: center;
+                    background: linear-gradient(116.65deg,
+                            hwb(100 56% 10%) 33.29%,
+                            hwb(81 54% 10% / 0.82) 53.05%,
+                            hwb(236 52% 0%) 79.23%,
+                            hwb(69 46% 15% / 0) 116.48%,
+                            hwb(237 54% 14%) 116.48%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                }
+
+                div {
+                    @include flex;
+                    gap: 2.5rem;
+
+                    a {
+                        @include flex;
+                        @include equal(125px);
+                        position: relative;
+                        border: 3px solid hwb(234 62% 17%);
+                        border-radius: 50%;
+
+                        &:hover {
+                            animation: spin 1000ms;
+                            cursor: pointer;
+
+                            span {
+                                left: -2px;
+                            }
+                        }
+
+                        span {
+                            transition: all .5s ease;
+                            border-radius: inherit;
+                            @include equal(inherit);
+                            @include flex;
+                            position: absolute;
+                            left: 20px;
+                            background-color: hwb(101 64% 4%);
+                        }
+                    }
+
+                    p {
+                        font-weight: 700;
+                        font-size: 1.1875rem;
+                        width: 660px;
+                        text-align: center;
+                    }
+                }
+            }
+
+            &.small-icons {
+                position: absolute;
+                height: 560px;
+                width: min(100%, 1488px);
+
+                figure {
+                    position: absolute;
+                    @include equal(40px);
+                    @include flex;
+                    animation: spin 5000ms linear infinite;
+
+                    &:nth-of-type(1) {
+                        top: 0;
+                        left: 25px;
+                        rotate: 45deg;
+                    }
+
+                    &:nth-of-type(2) {
+                        top: 25px;
+                        rotate: 225deg;
+                    }
+
+                    &:nth-of-type(3) {
+                        bottom: 125px;
+                        right: 25px;
+                    }
+                }
+
+                @keyframes spin {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        margin-top: 178px;
+        @include flex;
+        position: relative;
+
+        @include breakpoint-max(1300px) {
+            margin-bottom: 1rem;
+        }
+
+        figure {
+            position: absolute;
+            top: -450px;
+            left: -360px;
+            @include equal(933px);
+            z-index: 1;
+            @include flex;
+
+            @include breakpoint-max(1300px) {
+                @include equal(750px);
+                left: -310px;
+                top: -430px;
+            }
+        }
+
+        >div {
+            @include flex($direction:column);
+            gap: 2.5rem;
+
+            button {
+                width: 330px;
+                height: 4.625rem;
+                background-color: hwb(101 64% 4% / 0.49);
+                border-radius: 2.1875rem;
+                border: none;
+                outline: none;
+                position: relative;
+                isolation: isolate;
+                overflow: hidden;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    background-color: hwb(101 54% 4%);
+                    width: 10%;
+                    aspect-ratio: 1;
+                    border-radius: 50%;
+                    inset: 0;
+                    margin: auto;
+                    z-index: -1;
+                    opacity: 0;
+                }
+
+                &:hover::after {
+                    scale: 20;
+                    transition: .5s;
+                    opacity: 1;
+                }
+
+                &:has(:first-child:hover)::after {
+                    margin-left: 0;
+                }
+
+                &:has(:last-child:hover)::after {
+                    margin-right: 0;
+                }
+
+                a {
+                    @include flex;
+                    @include equal(inherit);
+                    font-weight: 700;
+                    font-size: 1.875rem;
+                    text-transform: capitalize;
+                    font-family: $syne;
+                }
+
+                span {
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    width: 25%;
+                    background-color: transparent;
+                    opacity: .5;
+                    cursor: pointer;
+
+                    &:first-of-type {
+                        left: 0;
+                    }
+
+                    &:last-of-type {
+                        right: 0;
+                    }
+                }
+            }
+
+            p {
+                text-align: center;
+                font-weight: 700;
+
+                &:first-of-type {
+                    color: hwb(100 6% 77%);
+                    font-size: 2.1875rem;
+                    width: 570px;
+                }
+
+                &:last-of-type {
+                    font-size: 1rem;
+                    width: 530px;
+                    color: hwb(0 3% 96% / 0.89);
+                }
+            }
+
+            >div {
+                @include flex;
+                gap: 1rem;
+
+                div {
+                    @include flex;
+
+                    &.left {
+                        width: 230px;
+                        position: relative;
+
+                        span {
+                            position: absolute;
+                            @include flex;
+                            @include equal(65px);
+                            border-radius: 50%;
+                            overflow: hidden;
+
+                            &:nth-of-type(1) {
+                                left: 0;
+                            }
+
+                            &:nth-of-type(2) {
+                                left: 35px;
+                            }
+
+                            &:nth-of-type(3) {
+                                left: 70px;
+                            }
+
+                            &:nth-of-type(4) {
+                                right: 65px;
+                            }
+
+                            &:nth-of-type(5) {
+                                right: 35px;
+                            }
+
+                            &:nth-of-type(6) {
+                                right: 0;
+                                background-color: black;
+                            }
+                        }
+                    }
+
+                    &.right {
+                        flex-direction: column;
+                        align-items: flex-start;
+
+                        span {
+                            font-family: $zen;
+                            font-weight: 400;
+
+                            &:first-of-type {
+                                padding-left: 10px;
+                                font-size: 1.5625rem;
+                            }
+
+                            &:last-of-type {
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

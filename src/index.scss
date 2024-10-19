@@ -1,0 +1,166 @@
+$breakpoints: ("mobile": 250px, "mini-tablet": 481px, "tablet": 768px, "laptop": 1024px, "tv": 1280px, "uhd4k": 1300px);
+
+@mixin mobile {
+    @media (min-width: map-get($breakpoints, "mobile")) {
+        @content
+    }
+}
+
+$mobile:map-get($breakpoints, "mobile");
+// <============= breakpoint ==============>
+
+@mixin mini-tablet {
+    @media (min-width: map-get($breakpoints, "mini-tablet")) {
+        @content
+    }
+}
+
+$mini-tablet:map-get($breakpoints, "mini-tablet");
+// <============= breakpoint ==============>
+
+@mixin tablet {
+    @media (min-width: map-get($breakpoints, "tablet")) {
+        @content
+    }
+}
+
+$tablet:map-get($breakpoints, "tablet");
+// <============= breakpoint ==============>
+
+@mixin laptop {
+    @media (min-width: map-get($breakpoints, "laptop")) {
+        @content
+    }
+}
+
+$laptop:map-get($breakpoints, "laptop");
+// <============= breakpoint ==============>
+
+@mixin tv {
+    @media (min-width: map-get($breakpoints, "tv")) {
+        @content
+    }
+}
+
+$tv:map-get($breakpoints, "tv");
+// <============= breakpoint ==============>
+
+@mixin uhd4k {
+    @media (min-width: map-get($breakpoints, "uhd4k")) {
+        @content
+    }
+}
+
+$uhd4k:map-get($breakpoints, "uhd4k");
+// <============= breakpoint ==============>
+
+@mixin breakpoint-max($bp:0) {
+    @media (max-width: $bp) {
+        @content
+    }
+}
+
+;
+
+@mixin breakpoint-min($bp:0) {
+    @media (min-width: $bp) {
+        @content
+    }
+}
+
+;
+
+@mixin flex($align:center, $direction:row, $justify:center) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+}
+
+;
+
+@mixin equal($h-w:0) {
+    height: $h-w;
+    width: $h-w;
+}
+
+;
+
+:root {
+    --background: hwb(0 95% 5%);
+    // --d-background: rgba(150, 100, 220, 0.1) !important;
+}
+
+// fonts
+@font-face {
+    font-family: "Axiforma";
+    src: url("./assets/fonts/axiforma/Kastelov\ -\ Axiforma\ Book.otf");
+}
+
+
+$axiforma:'Axiforma',
+sans-serif;
+$poppins: 'Poppins',
+sans-serif;
+$syne:'Syne',
+sans-serif;
+$zen: 'Zen Dots',
+cursive;
+
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    background: var(--d-background);
+}
+
+body {
+    background-color: var(--background);
+    position: relative;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+
+    .app {
+        @include breakpoint-max($tablet) {
+            // below 768px
+            display: none;
+        }
+
+        @include tablet() {
+            // above 768px
+            display: block;
+            zoom: 50%;
+        }
+
+        @include laptop() {
+            zoom: 65%;
+        }
+
+        @include tv {
+            zoom: 75%;
+        }
+
+        @include breakpoint-min(1270px) {
+            zoom: 70%;
+        }
+
+        @include uhd4k {
+            zoom: 80%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

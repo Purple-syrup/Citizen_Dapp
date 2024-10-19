@@ -1,0 +1,142 @@
+@import "../../index.scss";
+
+
+.topNav {
+    padding-inline: 2.5%;
+    border-bottom: 1px solid hwb(0 85% 15%);
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 5;
+
+    >div {
+        @include flex($justify:space-between);
+        height: 80px;
+
+        .logo {
+            a {
+                @include flex;
+                gap: .5rem;
+
+                span {
+                    @include flex;
+
+                    &:last-of-type {
+                        font-family: $syne;
+                        font-weight: 600;
+                        color: hwb(215 12% 2%);
+                        font-size: 1.4375rem;
+                    }
+                }
+            }
+        }
+
+        nav {
+            @include flex;
+            gap: 4.7rem;
+            text-transform: capitalize;
+            font-family: $axiforma;
+            margin-right: auto;
+            padding-left: 180px;
+
+            @include breakpoint-max(1300px) {
+                padding-left: 125px;
+            }
+
+            a {
+                font-weight: 500;
+                color: hwb(0 39% 61%);
+                @include flex();
+                gap: .55rem;
+
+                span {
+                    @include flex();
+                }
+            }
+        }
+
+        .right {
+            @include flex;
+            gap: 1.25rem;
+
+            button {
+                height: 48px;
+                width: 180px;
+                border-radius: 5px;
+                @include flex;
+                background-color: rgba(84, 62, 197, 1);
+                border: none;
+                outline: none;
+                gap: 1rem;
+
+                @include breakpoint-max(1300px) {
+                    // display: none
+                }
+
+                span {
+                    @include flex;
+
+                    &:last-of-type {
+                        font-size: 1rem;
+                        color: white;
+                        text-transform: capitalize;
+                        font-family: $poppins;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            hr {
+                background-color: hwb(0 85% 15%);
+                width: 2px;
+                height: 60px;
+                opacity: .25;
+            }
+
+            >div {
+                @include flex;
+                gap: 1.25rem;
+
+                >span {
+                    &:first-of-type {
+                        @include equal(48px);
+                        border-radius: 50%;
+                        @include flex;
+                        overflow: hidden;
+                        padding: .25rem;
+                        background: linear-gradient(180deg, hwb(245 29% 31%) 0%, hwb(256 11% 2%) 100%);
+
+                        img {
+                            border-radius: inherit;
+                        }
+                    }
+
+                    &:last-of-type {
+                        margin-left: 10px;
+                    }
+                }
+
+                div {
+                    @include flex($direction:column);
+
+                    span {
+                        font-family: $poppins;
+
+                        &:first-of-type {
+                            color: hwb(0 16% 84%);
+                            font-size: 1.5rem;
+                            font-weight: 500;
+                        }
+
+                        &:last-of-type {
+                            color: hwb(0 39% 61%);
+                            font-size: .75rem;
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

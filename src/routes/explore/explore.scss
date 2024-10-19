@@ -1,0 +1,260 @@
+@import "../../index.scss";
+
+
+.explore {
+    position: absolute;
+    right: 0;
+    top: 550px;
+    width: calc(100% - 360px);
+    height: 95vh;
+
+    >div {
+        padding: 5px 50px 50px 50px;
+
+        >div {
+            @include flex;
+
+            &.top {
+                justify-content: space-between;
+                gap: 1.25rem;
+
+                >span {
+                    @include equal(50px);
+                    @include flex;
+                }
+
+                h2 {
+                    margin-right: auto;
+                    font-family: $syne;
+                    font-weight: 600;
+                    font-size: 1.75rem;
+                }
+
+                div {
+                    color: hwb(215 12% 2%);
+                    font-family: $syne;
+                    font-weight: 600;
+                    font-size: 1.375rem;
+                    @include flex;
+                    gap: .75rem;
+                    transition: .25s ease-in-out all;
+
+                    &:hover {
+                        cursor: pointer;
+                        text-decoration: underline;
+                        gap: .5rem;
+                    }
+
+                    span {
+                        text-transform: capitalize;
+                        @include flex;
+                        font-size: inherit;
+                    }
+                }
+            }
+
+            &.bottom {
+                margin-top: 3.75rem;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-row-gap: 50px;
+                grid-column-gap: 50px;
+                place-items: center;
+
+                .card>a {
+                    height: 220px;
+                    width: min(100%, 455px);
+                    padding: 1.25rem;
+                    background: hwb(0 100% 0%);
+                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+                    border-radius: .625rem;
+                    @include flex($direction:column);
+                    transition: ease-in-out all 150ms;
+
+                    &:hover {
+                        scale: 1.05
+                    }
+
+                    >div {
+                        @include flex;
+                        width: 100%;
+
+                        &.top {
+                            gap: 1.25rem;
+                            margin-bottom: 10px;
+
+                            span {
+                                @include flex;
+
+                                &:nth-of-type(1) {
+                                    @include equal(52.5px);
+                                    overflow: hidden;
+                                    border-radius: 50%;
+                                }
+
+                                &:nth-of-type(2) {
+                                    font-family: $syne;
+                                    font-weight: 600;
+                                    font-size: 1rem;
+                                    margin-right: auto;
+                                }
+
+                                &:nth-of-type(3) {
+                                    height: 22px;
+                                    width: 70px;
+                                    font-family: $axiforma;
+                                    background-color: hwb(201 88% 0%);
+                                    text-transform: capitalize;
+                                    font-weight: 500;
+                                    font-size: .5625rem;
+                                    border-radius: 5px;
+                                }
+                            }
+                        }
+
+                        &.center {
+                            flex-direction: column;
+                            align-items: flex-start;
+                            gap: .625rem;
+
+                            >span {
+                                font-family: $syne;
+                                font-weight: 500;
+
+                                &:first-of-type {
+                                    font-size: 1.375rem;
+                                    color: hwb(0 16% 84%);
+                                }
+
+                                &:last-of-type {
+                                    font-size: .75rem;
+                                    color: hwb(0 62% 38%);
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    max-height: 1.875rem;
+                                }
+
+                                span {
+                                    color: inherit;
+                                    font-size: inherit;
+                                    font-weight: inherit;
+                                    font-family: inherit;
+                                }
+                            }
+                        }
+
+                        &.bottom {
+                            margin-top: .625rem;
+                            flex-direction: column;
+                            gap: .625rem;
+
+                            >div {
+                                @include flex;
+                                width: 100%;
+
+                                &:first-of-type {
+                                    height: .2rem;
+                                    background-color: hwb(0 95% 5%);
+                                    border-radius: .3125rem;
+                                    overflow: hidden;
+                                    justify-content: flex-start;
+
+                                    span {
+                                        height: 100%;
+                                        @include flex;
+
+                                        &:nth-of-type(1) {
+                                            background-color: hwb(126 24% 12%);
+                                        }
+
+                                        &:nth-of-type(2) {
+                                            background-color: hwb(0 24% 12%);
+                                        }
+
+                                        &:nth-of-type(3) {
+                                            background-color: hwb(245 24% 12%);
+                                        }
+
+                                        &:last-of-type {
+                                            border-top-right-radius: inherit;
+                                            border-bottom-right-radius: inherit;
+                                        }
+                                    }
+                                }
+
+                                &:last-of-type {
+                                    justify-content: space-between;
+
+                                    .left {
+                                        margin-right: auto;
+                                        @include flex;
+                                        gap: .625rem;
+
+                                        span {
+                                            @include flex($justify:flex-start);
+                                            font-size: 1rem;
+                                            color: hwb(0 62% 38%);
+                                            font-family: $axiforma;
+                                            font-weight: 400;
+                                            text-transform: capitalize;
+                                            gap: .25rem;
+
+                                            b {
+                                                font-family: $axiforma;
+                                                font-weight: 700;
+                                                color: hwb(0 16% 84%);
+                                            }
+                                        }
+
+                                        div {
+                                            @include flex;
+                                            width: 80px;
+                                            position: relative;
+
+                                            img {
+                                                position: absolute;
+                                                @include equal(1rem);
+                                                border-radius: 50%;
+
+                                                &:nth-of-type(1) {
+                                                    left: 0;
+                                                }
+
+                                                &:nth-of-type(2) {
+                                                    left: 12px;
+                                                }
+
+                                                &:nth-of-type(3) {
+                                                    left: 24px;
+                                                }
+
+                                                &:nth-of-type(4) {
+                                                    left: 35px;
+                                                }
+
+                                                &:nth-of-type(5) {
+                                                    left: 46px;
+                                                }
+
+                                                &:nth-of-type(6) {
+                                                    left: 58px;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .right {
+                                        font-size: 1rem;
+                                        font-family: $axiforma;
+                                        font-weight: 400;
+                                        color: hwb(0 62% 38%);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

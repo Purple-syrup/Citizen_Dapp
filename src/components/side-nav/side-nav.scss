@@ -1,0 +1,161 @@
+@import "../../index.scss";
+
+
+.sideNav {
+    width: 360px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    padding-top: 80px;
+    z-index: -1;
+    background-color: white;
+
+    >div {
+        padding: 50px;
+        @include flex($direction:column);
+        gap: 1.875rem;
+
+        @include breakpoint-max(1300px) {
+            padding-bottom: 15px;
+        }
+
+        .top {
+            @include flex($direction:column, $align:flex-start);
+            width: 100%;
+            gap: 1.5rem;
+
+            h4 {
+                @include flex;
+                gap: 1.1875rem;
+                text-transform: capitalize;
+                font-size: 1rem;
+
+                span {
+                    &:last-of-type {
+                        color: hwb(215 12% 2% / 0.49);
+                        font-weight: 500;
+                        font-family: $poppins;
+                    }
+                }
+            }
+
+            >div {
+                @include flex($direction:column, $align:flex-start);
+                gap: 1.5rem;
+                width: 100%;
+
+                .chain {
+                    @include flex;
+                    gap: 1.25rem;
+                    width: inherit;
+
+                    >span {
+                        @include flex;
+
+                        &:first-of-type {
+                            @include equal(32px);
+                            border-radius: 50%;
+                            overflow: hidden;
+                        }
+
+                        &:last-of-type {
+                            margin-left: auto;
+                            color: hwb(213 80% 12%);
+                            font-family: $poppins;
+                            font-size: 1rem;
+                        }
+                    }
+
+                    div {
+                        @include flex($direction:column, $align:flex-start);
+                        gap: .3125rem;
+
+                        span {
+                            @include flex($justify:flex-start);
+
+                            &:first-of-type {
+                                font-family: $syne;
+                                text-transform: capitalize;
+                                font-weight: 600;
+                                font-size: 1rem;
+                            }
+
+                            &:last-of-type {
+                                font-family: $poppins;
+                                font-weight: 500;
+                                font-size: .75rem;
+                                color: hwb(0 39% 61%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        hr {
+            border-color: hwb(0 85% 15% / 0.63);
+            width: 100%;
+            height: 1px;
+            opacity: .25;
+        }
+
+        .bottom {
+            width: 100%;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 0px;
+                background: transparent;
+            }
+
+            ul {
+                list-style: none;
+                @include flex($direction:column, $align:flex-start);
+                gap: 1.75rem;
+
+                li>a {
+                    @include flex($justify:flex-start);
+                    gap: 1.25rem;
+                    color: hwb(0 62% 38%);
+                    position: relative;
+
+                    &.active,
+                    &:hover {
+                        color: hwb(215 12% 2%);
+
+                        span {
+                            &:nth-of-type(1) {
+                                svg {
+                                    path {
+                                        fill: hwb(215 12% 2%);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    span {
+                        @include flex;
+
+                        &:nth-of-type(1) {
+                            @include equal(32px);
+                        }
+
+                        &:nth-of-type(2) {
+                            font-family: $poppins;
+                            text-transform: capitalize;
+                            font-weight: 400;
+                            font-size: 1rem;
+                        }
+
+                        &:nth-of-type(3) {
+                            position: absolute;
+                            right: -30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
